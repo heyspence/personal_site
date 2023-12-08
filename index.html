@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Stack Developer - Spencer Heywood</title>
+    <title>Spencer Heywood - Full Stack SWE</title>
     <link rel="stylesheet" href="./index.css">
     <link rel="icon" href="https://spencerheywood.com/images/apple-touch-icon.png">
 </head>
@@ -21,7 +21,19 @@
         <h2>Portfolio</h2>
         <a href="https://dashdoor.spencerheywood.com" target="blank">DashDoor</a>
         <p class="view-dash-door">View Dash Door</p>
-        <iframe class="dash-door-iframe hidden" src="https://dashdoor.spencerheywood.com" loading="lazy"></iframe>
+
+
+        <div class="modal hidden">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <div class="close-icon"></div>
+                    <div class="url-bar"></div>
+                </div>
+                <iframe class="dash-door-iframe" src="https://dashdoor.spencerheywood.com" loading="lazy"></iframe>
+            </div>
+        </div>
+
+
         <a href="https://nugget-rush.spencerheywood.com" target="blank">Nugget Rush Tycoon</a>
         <a href="https://home-keeper.com" target="blank">Home Keeper</a>
     </main>
@@ -30,6 +42,6 @@
 
     </footer>
     
-    <script src="./index.js"></script>
+    <script src="./index.js" defer></script>
 </body>
 </html>
