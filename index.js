@@ -1,27 +1,50 @@
 const dashDoorViewButton = document.querySelector('.view-dash-door')
-const modal = document.querySelector('.modal')
-const closeIcon = document.querySelector('.close-icon')
+const nuggetRushViewButton = document.querySelector('.view-nugget-rush')
+const homeKeeperViewButton = document.querySelector('.view-home-keeper')
+const dashdoorModal = document.querySelector('.dashdoor-modal')
+const nuggetRushModal = document.querySelector('.nugget-rush-modal')
+const homeKeeperModal = document.querySelector('.home-keeper-modal')
+const closeIcons = document.querySelectorAll('.close-icon')
+const modals = document.querySelectorAll('.modal')
 
-const toggleIHidden = (element) => {
+const revealElement = (element) => {
     if(element.classList.contains("hidden")){
         element.classList.remove("hidden")
-    }else{
+    }
+}
+
+const hideElement = (element) => {
+    if(!element.classList.contains("hidden")){
         element.classList.add("hidden")
     }
 }
 
 dashDoorViewButton.addEventListener("click", ()=>{
-    toggleIHidden(modal)
+    revealElement(dashdoorModal)
 })
 
-modal.addEventListener("click", ()=>{
-    toggleIHidden(modal)
+nuggetRushViewButton.addEventListener("click", ()=>{
+    revealElement(nuggetRushModal)
 })
 
-closeIcon.addEventListener("click", ()=>{
-    toggleIHidden(modal)
+homeKeeperViewButton.addEventListener("click", ()=>{
+    revealElement(homeKeeperModal)
 })
 
-document.querySelector('.modal-container').addEventListener('click', (e) => {
-    e.stopPropagation();
-});
+closeIcons.forEach(icon => {
+    icon.addEventListener('click', (e) => {
+        if(e.target === icon){
+            modals.forEach(modal => {
+                hideElement(modal)
+            })
+        }
+    })
+})
+
+modals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if(e.target === modal){
+            hideElement(modal);
+        }
+    })
+})

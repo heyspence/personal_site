@@ -17,6 +17,7 @@ blockquote,
 dl,
 dd {
   margin-block-end: 0;
+  margin-block-start: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -78,12 +79,28 @@ select {
 /* ================================= BEGIN CUSTOM CSS ======================================= */
 
 
+main{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+}
+
+.main-content-container{
+    width: 80vw;
+}
+
 .title{
-    color: red;
     font-size: 20px;
 }
 
-.dash-door-iframe{
+.iframe{
     border: none;
     height: 100%;
     width: 100%;
@@ -96,7 +113,7 @@ select {
 }
 
 .modal{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -107,11 +124,42 @@ select {
     align-items: center;
 }
 
+.portfolio-index{
+    display: flex;
+    justify-content: space-evenly;
+    width: 70vw;
+    margin: 20px auto;
+}
+
+.section-title-container{
+    flex: 1 1 0;
+    position: relative;
+    margin: 0 10px;
+}
+
+.section-title{
+    position: absolute;
+    top: -15px;
+    left: 10px;
+}
+
+.portfolio-item{
+    flex: 1 1 0;
+    height: 300px;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 0 0 lightgray;
+    background-color: lightgray;
+    border-radius: 4px;
+    margin: 60px 10px 10px 10px;
+    padding: 10px;
+}
+
+
 .modal-container{
     position: relative;
     height: 90vh;
     width: 80vw;
-    background-color: #d6d6d6;
+    background-color: white;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -122,7 +170,7 @@ select {
     position: relative;
     width: 100%;
     height: 50px;
-    background-color: white;
+    background-color: #e2dede;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -131,13 +179,13 @@ select {
 }
 
 .close-icon{
-    background-color: red;
+    background-color: #ff5f57;
     font-size: 8px;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    border-radius: 10px;
+    width: 6px;
+    height: 6px;
     padding: 10px;
-    margin-left: 10px;
+    margin-left: 15px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -152,10 +200,10 @@ select {
 
 .url-bar{
     width: 60%;
-    height: 30px;
+    height: 28px;
     font-size: 18px;
-    color: lightgray;
-    background-color: lightgray;
+    color: #f0eeee;
+    background-color: #f0eeee;
     margin: 0 auto;
     border-radius: 15px;
     display: flex;
