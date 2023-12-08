@@ -83,11 +83,8 @@ select {
     font-size: 20px;
 }
 
-iframe{
-    border: none;
-}
-
 .dash-door-iframe{
+    border: none;
     height: 100%;
     width: 100%;
     border-bottom-left-radius: 20px;
@@ -112,10 +109,13 @@ iframe{
 
 .modal-container{
     position: relative;
-    height: 80vh;
+    height: 90vh;
     width: 80vw;
-    background-color: white;
+    background-color: #d6d6d6;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .modal-header{
@@ -145,6 +145,7 @@ iframe{
 
 .close-icon:hover::before{
     content: "x";
+    margin-top: -2px;
     font-size: 13px;
     color: white;
 }
@@ -152,7 +153,16 @@ iframe{
 .url-bar{
     width: 60%;
     height: 30px;
+    font-size: 18px;
+    color: lightgray;
     background-color: lightgray;
     margin: 0 auto;
     border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.url-bar:hover{
+    color: gray;
 }
