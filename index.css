@@ -178,6 +178,7 @@ h2{
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    color: var(--secondary-text);
 }
 
 .resume-icon{
