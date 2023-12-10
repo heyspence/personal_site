@@ -71,12 +71,13 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    min-height: 1000px;
 }
 
 .body-container{
     position: relative;
     margin-top: 10vh;
-    width: 80vh;
+    width: 80vw;
     height: 110vh;
     display: flex;
     align-items: center;
@@ -106,10 +107,14 @@ h2{
 }
 
 .block-container{
-    width: 80vw;
+    width: 90vw;
     height: 40vh;
     display: flex;
     justify-content: space-between;
+}
+
+.main .main-block{
+    /* min-height: 180px; */
 }
 
 .main-block{
@@ -120,6 +125,7 @@ h2{
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     margin: 7px;
     padding: 30px;
+    min-width: 300px;
 }
 
 .intro-block{
@@ -173,6 +179,10 @@ h2{
     background-position: center;
 }
 
+.circular-text{
+    position: absolute;
+}
+
 .resume-block{
     display: flex;
     justify-content: space-around;
@@ -184,7 +194,7 @@ h2{
 .resume-icon{
     width: 30%;
     height: auto;
-    margin-bottom: -100px;
+    /* margin-bottom: -100px; */
 }
 
 .portfolio-img{
@@ -225,4 +235,9 @@ h2{
 
 .portfolio-container{
     max-height: 215px;
+}
+
+
+.main, .main-portfolio{
+    overflow-x: auto;
 }
