@@ -113,10 +113,6 @@ h2{
     justify-content: space-between;
 }
 
-.main .main-block{
-    /* min-height: 180px; */
-}
-
 .main-block{
     position: relative;
     flex: 1 1 0;
@@ -194,7 +190,6 @@ h2{
 .resume-icon{
     width: 30%;
     height: auto;
-    /* margin-bottom: -100px; */
 }
 
 .portfolio-img{
@@ -203,15 +198,16 @@ h2{
 }
 
 .nugget-rush-img{
-    width: 35%
+    width: 25%
 }
 
 .dashdoor-img{
-    width: 32%;
+    width: 22%;
 }
 
 .home-keeper-img{
-    width: 42%;
+    width: 32%;
+    margin-top: -15px;
 }
 
 
@@ -221,7 +217,7 @@ h2{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 #portfolio-title{
@@ -234,7 +230,7 @@ h2{
 }
 
 .portfolio-container{
-    max-height: 215px;
+    max-height: 150px;
 }
 
 
