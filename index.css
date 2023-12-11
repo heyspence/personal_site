@@ -168,6 +168,9 @@ h2{
     background-position: center;
 }
 
+.intro-block, .resume-block, .headshot-block{
+    min-height: 185px;
+}
 .headshot-block{
     display: flex;
     justify-content: space-around;
