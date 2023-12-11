@@ -71,14 +71,15 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 1000px;
+    /* min-height: 1000px; */
 }
 
 .body-container{
     position: relative;
-    margin-top: 10vh;
+    margin-top: 5vh;
     width: 80vw;
-    height: 110vh;
+    min-height: 800px;
+    height: 100vh;
     display: flex;
     align-items: center;
     display: flex;
@@ -111,6 +112,14 @@ h2{
     height: 40vh;
     display: flex;
     justify-content: space-between;
+}
+
+.main{
+    min-height: 290px;
+}
+
+.top-section {
+    min-height: 180px;
 }
 
 .main-block{
@@ -230,7 +239,7 @@ h2{
 }
 
 .portfolio-container{
-    max-height: 150px;
+    max-height: 135px;
 }
 
 
