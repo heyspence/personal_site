@@ -144,7 +144,7 @@ h2{
 .icon-container{
     display: flex;
     justify-content: space-between;
-    width: 100px;
+    width: 90px;
 }
 
 .icon{
@@ -168,6 +168,13 @@ h2{
     background-position: center;
 }
 
+.fiverr-icon{
+    background-image: url('assets/images/fiverr-icon.png');
+    background-repeat: no-repeat;
+    background-size: 120% 120%;
+    background-color: var(--secondary-text);
+    background-position: center;
+}
 .intro-block, .resume-block, .headshot-block{
     min-height: 185px;
 }
