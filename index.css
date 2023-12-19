@@ -71,6 +71,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: relative
     /* min-height: 1000px; */
 }
 
@@ -236,7 +237,6 @@ h2{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* flex-direction: column; */
 }
 
 #portfolio-title{
@@ -257,13 +257,23 @@ h2{
     overflow-x: auto;
 }
 
-.technology-icons{
-    height: 100px;
+.icons-container{
+    width: 80vw;
     display: flex;
+    justify-content: center;
+}
+
+.technology-icons{
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    justify-content: center;
 }
 
 .technology-icons img{
-    width: 5vw;
+    width: 55px;
     height: auto;
-    margin: 15px;
+    margin: 10px;
 }
