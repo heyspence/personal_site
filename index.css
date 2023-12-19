@@ -256,3 +256,14 @@ h2{
 .main, .main-portfolio{
     overflow-x: auto;
 }
+
+.technology-icons{
+    height: 100px;
+    display: flex;
+}
+
+.technology-icons img{
+    width: 5vw;
+    height: auto;
+    margin: 15px;
+}
