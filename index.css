@@ -331,3 +331,9 @@ h2{
     white-space: pre;
     line-height: 20px;
 }
+
+@media only screen and (max-width: 750px){
+    .servo-img{
+        display: none;
+    }
+}
