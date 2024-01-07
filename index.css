@@ -260,6 +260,10 @@ h2{
     max-height: 135px;
 }
 
+.portfolio-container > *{
+    min-width: 200px;
+}
+
 
 .main, .main-portfolio{
     overflow-x: auto;
@@ -326,4 +330,10 @@ h2{
 .main-blurb p{
     white-space: pre;
     line-height: 20px;
+}
+
+@media only screen and (max-width: 750px){
+    .servo-img{
+        display: none;
+    }
 }
