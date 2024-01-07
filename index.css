@@ -231,8 +231,8 @@ h2{
 }
 
 .home-keeper-img{
-    width: 18%;
-    margin-top: -15px;
+    width: 20%;
+    margin-top: -10px;
 }
 
 
@@ -250,7 +250,10 @@ h2{
 
 
 .image-container h2{
-    color: var(--secondary-text);
+    /* color: var(--secondary-text); */
+    color: #3c4c40;
+    position: relative;
+    margin-bottom: -15px;
 }
 
 .portfolio-container{
@@ -266,6 +269,7 @@ h2{
     width: 80vw;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .technology-icons{
@@ -284,10 +288,42 @@ h2{
 }
 
 .featured-item::before{
-    content: 'Featured';
-    color: red;
+    content: 'DashDoor';
+    color: var(--secondary-text);
+    font-size: 14px;
+    position: absolute;
+    top: -15px;
+}
+
+.current-project-item::before{
+    content: 'Servo Clone';
+    color: var(--secondary-text);
     font-size: 12px;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: -15px;
+}
+
+.mern-item::before{
+    content: 'Home Keeper';
+    color: var(--secondary-text);
+    font-size: 12px;
+    position: absolute;
+    top: -15px;
+}
+
+.client-side-item::before{
+    content: 'Nugget Rush';
+    color: var(--secondary-text);
+    font-size: 12px;
+    position: absolute;
+    top: -15px;
+}
+
+.main-blurb{
+    margin: 20px 0;
+}
+
+.main-blurb p{
+    white-space: pre;
+    line-height: 20px;
 }
