@@ -332,6 +332,13 @@ h2{
     line-height: 20px;
 }
 
+.intro-block-blurb{
+    line-height: 20px;
+    font-size: 18px;
+    white-space: pre-wrap;
+    color: gray
+}
+
 @media only screen and (max-width: 750px){
     .servo-img{
         display: none;
