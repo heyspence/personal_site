@@ -71,8 +71,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: relative
-    /* min-height: 1000px; */
+    position: relative;
 }
 
 .body-container{
@@ -80,11 +79,11 @@ body{
     margin-top: 5vh;
     width: 80vw;
     min-height: 800px;
-    height: 100vh;
     display: flex;
     align-items: center;
     display: flex;
     flex-direction: column;
+    padding-bottom: 40px;
 }
 
 h1{
@@ -110,13 +109,13 @@ h2{
 
 .block-container{
     width: 90vw;
-    height: 40vh;
     display: flex;
     justify-content: space-between;
 }
 
 .main{
     min-height: 290px;
+    overflow-y: hidden;
 }
 
 .top-section {
@@ -189,9 +188,9 @@ h2{
     height: 150px;
     width: 150px;
     border-radius: 50%;
-    background-image: url('assets/images/DALL·E 2023-12-09 10.15.43 - Create a hyper-minimalist, faceless portrait of a Caucasian man aged 30-35 with a side profile. The portrait should convey a joyful expression through.png');
+    background-image: url('https://spencerheywood.com/images/misc/spencer-heywood-headshot.png');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 110% 110%;
     background-position: center;
 }
 
@@ -244,7 +243,7 @@ h2{
     align-items: center;
 }
 
-#portfolio-title{
+.portfolio-title{
     margin-top: 20px;
 }
 
@@ -267,13 +266,14 @@ h2{
 
 .main, .main-portfolio{
     overflow-x: auto;
+    flex-shrink: 0;
 }
 
 .icons-container{
     width: 80vw;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .technology-icons{
@@ -300,7 +300,7 @@ h2{
 }
 
 .current-project-item::before{
-    content: 'Servo Clone';
+    content: 'Servo 2.0';
     color: var(--secondary-text);
     font-size: 12px;
     position: absolute;
@@ -327,7 +327,37 @@ h2{
     line-height: 20px;
     font-size: 18px;
     white-space: pre-wrap;
-    color: gray
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.additional-work{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.additional-work a{
+    color: #3c4c40;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.additional-work a:hover{
+    cursor: pointer;
+}
+
+.contact-container{
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 750px){
