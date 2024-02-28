@@ -251,7 +251,6 @@ h2{
 
 
 .image-container h2{
-    /* color: var(--secondary-text); */
     color: #3c4c40;
     position: relative;
     margin-bottom: -15px;
@@ -302,7 +301,7 @@ h2{
 }
 
 .current-project-item::before{
-    content: 'Servo 2.0';
+    content: 'BookServo.com';
     color: var(--secondary-text);
     font-size: 12px;
     position: absolute;
