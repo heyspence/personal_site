@@ -293,7 +293,7 @@ h2{
 }
 
 .featured-item::before{
-    content: 'DashDoor';
+    content: 'Full Stack';
     color: var(--secondary-text);
     font-size: 14px;
     position: absolute;
@@ -301,7 +301,7 @@ h2{
 }
 
 .current-project-item::before{
-    content: 'BookServo.com';
+    content: 'Full Stack';
     color: var(--secondary-text);
     font-size: 12px;
     position: absolute;
@@ -309,7 +309,7 @@ h2{
 }
 
 .mern-item::before{
-    content: 'Home Keeper';
+    content: 'MERN Stack';
     color: var(--secondary-text);
     font-size: 12px;
     position: absolute;
@@ -317,7 +317,7 @@ h2{
 }
 
 .client-side-item::before{
-    content: 'Nugget Rush';
+    content: 'Client Side';
     color: var(--secondary-text);
     font-size: 12px;
     position: absolute;
