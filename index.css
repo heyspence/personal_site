@@ -361,6 +361,14 @@ h2{
     margin-bottom: 20px;
 }
 
+.ai-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 @media only screen and (max-width: 750px){
     .servo-img{
         display: none;
