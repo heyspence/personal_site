@@ -1,1 +1,5 @@
 ssh-script.sh
+
+# Rewritten every few seconds by llm-inflight.service on the LLM box.
+inflight.json
+inflight.json.tmp
