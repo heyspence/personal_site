@@ -336,6 +336,14 @@ a.btn:hover { border-color: var(--accent); color: var(--accent); transform: tran
 .kpi-value { margin-top: 12px; color: var(--white); font-family: var(--mono); font-size: clamp(24px, 2.6vw, 31px); font-weight: 600; line-height: 1.1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
 .kpi-sub { margin-top: 8px; color: #7e95a0; font-size: 11px; line-height: 1.45; }
 
+/* Info icon on KPI labels — CSS-only tooltip (hover or keyboard focus), no JS.
+   Opens downward because .lab-console clips overflow and the band sits high up. */
+.info-tip { position: relative; display: inline-block; margin-left: 7px; cursor: help; }
+.info-tip i { display: inline-block; width: 12px; height: 12px; border: 1px solid #8fa8a0; border-radius: 50%; color: #8fa8a0; font-family: var(--mono); font-size: 8px; line-height: 10px; text-align: center; letter-spacing: 0; text-transform: none; transition: background-color .2s, border-color .2s, color .2s; }
+.info-tip:hover i, .info-tip:focus i { color: var(--mint); border-color: var(--mint); background: rgba(143, 217, 189, .12); }
+.info-pop { display: none; position: absolute; top: calc(100% + 9px); left: -8px; z-index: 3; width: min(76vw, 320px); padding: 12px 14px; background: var(--pine); border: 1px solid rgba(143, 217, 189, .35); box-shadow: 0 10px 26px rgba(0, 0, 0, .35); color: #c8d5cf; font-family: var(--sans); font-size: 10.5px; line-height: 1.55; letter-spacing: normal; text-transform: none; }
+.info-tip:hover .info-pop, .info-tip:focus .info-pop { display: block; }
+
 /* Breakdowns stay out of the way until the visitor asks for them. */
 .stat-breakdowns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 14px; background: rgba(255, 255, 255, .09); border: 1px solid rgba(255, 255, 255, .09); }
 .stat-details { background: rgba(255, 255, 255, .035); }
