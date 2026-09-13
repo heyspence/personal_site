@@ -510,10 +510,12 @@ const POWER_RATE_USD_PER_KWH = 0.14; // household rate used for the power cost e
         return value >= 1000 ? String(Math.round(value)) : trimNum(value);
     }
 
-    // Payback at real per-model rates runs into thousands of days; show years
-    // once past two so the KPI stays readable.
+    // Payback at real per-model rates lands in the months-to-years range; pick
+    // a readable unit — days under ~3 months, then months, then years.
     function formatDays(days) {
-        return days > 730 ? `~${Math.round(days / 365)} yrs` : `~${days} days`;
+        if (days > 730) return `~${Math.round(days / 365.25)} yrs`;
+        if (days > 90) return `~${Math.round(days / 30.44)} mo`;
+        return `~${days} days`;
     }
 
     function setText(el, text) {
