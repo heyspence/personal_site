@@ -3,3 +3,6 @@ ssh-script.sh
 # Rewritten every few seconds by llm-inflight.service on the LLM box.
 inflight.json
 inflight.json.tmp
+
+# Gateway API key for server/chat-proxy.mjs — never commit or serve it.
+.env

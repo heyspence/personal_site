@@ -1,14 +1,18 @@
 // Live chat widget embedded just below the "LIVE FROM THE LAB" token counter.
 // Talks to the self-hosted AgentGateway's OpenAI-compatible endpoint using its
 // "default" virtual model, which routes to whatever model is currently loaded
-// in LM Studio. The model is seeded with a system prompt containing the full
-// content of this site so it can answer questions about Spencer and knows
-// exactly where its own interface lives.
+// in LM Studio. Requests go through server/chat-proxy.mjs on this site's own
+// origin (/chat-proxy/...), which injects the gateway API key server-side so
+// it never ships in this public file. The model is seeded with a system prompt
+// containing the full content of this site so it can answer questions about
+// Spencer and knows exactly where its own interface lives.
 
-const LAB_CHAT_API_URL = "https://llm.spencerheywood.com/v1/chat/completions";
-const LAB_CHAT_MCP_URL = "https://mcp.spencerheywood.com/mcp/";
+// Same-origin paths: nginx routes /chat-proxy/ to the local chat proxy
+// (server/chat-proxy.mjs), which forwards them to llm./mcp.spencerheywood.com
+// with the API key attached. No credentials are needed in this file.
+const LAB_CHAT_API_URL = "/chat-proxy/v1/chat/completions";
+const LAB_CHAT_MCP_URL = "/chat-proxy/mcp/";
 const LAB_CHAT_MODEL = "default";
-const LAB_CHAT_API_KEY = "[REDACTED]";
 const LAB_CHAT_EMAIL_RECIPIENT = "contact@spencerheywood.com";
 const LAB_CHAT_EMAIL_TOOL = "general_send_email";
 const LAB_CHAT_TOOLS = [{
@@ -128,10 +132,10 @@ const LAB_CHAT_BUSY_RETRY_DELAY_MS = 2000;
     }
 
     async function mcpPost(payload, sessionId, signal) {
+        // No API key here — the chat proxy adds it server-side.
         const headers = {
             "Content-Type": "application/json",
-            Accept: "application/json, text/event-stream",
-            Authorization: "Bearer " + LAB_CHAT_API_KEY
+            Accept: "application/json, text/event-stream"
         };
         if (sessionId) headers["Mcp-Session-Id"] = sessionId;
 
@@ -218,8 +222,7 @@ const LAB_CHAT_BUSY_RETRY_DELAY_MS = 2000;
             const response = await fetch(LAB_CHAT_API_URL, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
-                    Authorization: "Bearer " + LAB_CHAT_API_KEY
+                    "Content-Type": "application/json"
                 },
                 signal,
                 body: payload
