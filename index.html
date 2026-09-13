@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./index.css?v=20260828-email-chat">
+    <link rel="stylesheet" href="./index.css?v=20260913-lab-stats">
 </head>
 <body>
     <div class="body-container">
@@ -50,6 +50,7 @@
         <div class="masthead">
             <a class="wordmark" href="#top" aria-label="Spencer Heywood home">SPENCER <span id="last-name">HEYWOOD</span></a>
             <nav class="site-nav" aria-label="Primary navigation">
+                <a href="#lab-stats-title">Live stats</a>
                 <a href="#experience-title">Experience</a>
                 <a href="#ai-title">Systems work</a>
                 <a href="#contact-title">Contact</a>
@@ -89,65 +90,180 @@
             </div>
         </header>
 
-        <!-- ============================ LIVE LOCAL INFERENCE ============================ -->
-        <section class="lab-console" aria-labelledby="lab-console-title">
-            <div class="lab-telemetry">
-                <div class="telemetry-heading">
-                    <span id="lab-console-title" class="telemetry-label"><span class="live-dot" aria-hidden="true"></span>LIVE LOCAL INFERENCE</span>
-                    <span class="telemetry-machine">RTX PRO 6000 &middot; SELF-HOSTED</span>
-                </div>
-                <div class="telemetry-figure">
-                    <div class="telemetry-value">
-                        <span class="telemetry-value-visual" aria-hidden="true">
-                            <strong id="local-token-count" class="telemetry-number">&ndash;</strong>
-                            <span class="telemetry-unit">tokens processed</span>
-                        </span>
-                        <span id="local-token-count-a11y" class="sr-only">Connecting to the local token counter</span>
-                    </div>
-                    <div class="telemetry-meta">
-                        <small id="telemetry-updated" class="telemetry-updated">Connecting to LLM gateway&hellip;</small>
-                        <span id="telemetry-delta" class="telemetry-delta" aria-live="polite" hidden></span>
-                        <span class="telemetry-inflight" id="inflight-indicator">
-                            <span class="inflight-dots" id="inflight-dots" aria-hidden="true"></span>
-                            <span class="inflight-text" id="inflight-text">&ndash; active streams</span>
-                        </span>
-                        <span id="inflight-a11y" class="sr-only" aria-live="polite">Checking the local model&rsquo;s activity</span>
-                    </div>
-                </div>
-                <p class="telemetry-caption">Lifetime activity from models running on my own hardware. Ask the model below and watch the counter move.</p>
-            </div>
-
-            <div class="lab-chat">
-                <button type="button" class="lab-chat-toggle" id="lab-chat-toggle" aria-expanded="false" aria-controls="lab-chat-body">
-                    <span class="lab-chat-copy">
-                        <strong class="lab-chat-title">Ask Spencer&rsquo;s local model</strong>
-                        <span class="lab-chat-hint">Ask about my experience, projects, or AI lab—or send me an email from the chat.</span>
-                    </span>
-                    <span class="lab-chat-action" aria-hidden="true">
-                        <span class="lab-chat-action-closed">Open chat</span>
-                        <span class="lab-chat-action-open">Close</span>
-                    </span>
-                    <span class="lab-chat-caret" aria-hidden="true"></span>
-                </button>
-                <div class="lab-chat-body" id="lab-chat-body" hidden>
-                    <div class="lab-chat-starters" role="group" aria-label="Suggested questions">
-                        <button type="button" data-prompt="What kind of work does Spencer do?">Current experience</button>
-                        <button type="button" data-prompt="Tell me about Spencer's AI systems lab.">AI systems lab</button>
-                        <button type="button" data-prompt="What did Spencer build at SERVO?">SERVO project</button>
-                    </div>
-                    <ol class="lab-chat-log" id="lab-chat-log" role="log" aria-live="polite" aria-label="Conversation with Spencer's local model" tabindex="0"></ol>
-                    <form class="lab-chat-form" id="lab-chat-form">
-                        <label class="sr-only" for="lab-chat-input">Ask about Spencer&rsquo;s experience, projects, or AI lab</label>
-                        <input type="text" id="lab-chat-input" placeholder="Ask about Spencer&rsquo;s experience, projects, or lab&hellip;" autocomplete="off" maxlength="600">
-                        <button type="submit" class="lab-chat-send">Ask model</button>
-                    </form>
-                    <p id="lab-chat-usage" class="lab-chat-usage" aria-live="polite" hidden></p>
-                    <p class="lab-chat-note">Generated on Spencer&rsquo;s self-hosted hardware. Please don&rsquo;t share sensitive information.</p>
-                </div>
-            </div>
-        </section>
-
         <main>
+            <!-- ============================ LIVE LAB STATS ============================ -->
+            <section aria-labelledby="lab-stats-title" class="section lab-stats-section">
+                <h2 id="lab-stats-title" class="portfolio-title"><span class="title-text">Live Lab <span class="second-word">Stats</span></span></h2>
+                <p class="section-intro">The self-hosted stack from the AI Systems Lab runs my day-to-day agentic work&mdash;chat, agents, RAG pipelines, and the model answering on this page. These figures stream live from the LLM gateway on my home server: what the build cost, what it has saved in hosted API spend, the power it burns, and how hard one person can push a single workstation before it saturates and requests spill over to the API.</p>
+
+                <div class="lab-console">
+                    <div class="lab-telemetry">
+                        <div class="telemetry-heading">
+                            <span id="lab-console-title" class="telemetry-label"><span class="live-dot" aria-hidden="true"></span>LIVE LOCAL INFERENCE</span>
+                            <span class="telemetry-machine">RTX PRO 6000 &middot; SELF-HOSTED</span>
+                        </div>
+                        <div class="telemetry-figure">
+                            <div class="telemetry-value">
+                                <span class="telemetry-value-visual" aria-hidden="true">
+                                    <strong id="local-token-count" class="telemetry-number">&ndash;</strong>
+                                    <span class="telemetry-unit">tokens processed</span>
+                                </span>
+                                <span id="local-token-count-a11y" class="sr-only">Connecting to the local token counter</span>
+                            </div>
+                            <div class="telemetry-meta">
+                                <small id="telemetry-updated" class="telemetry-updated">Connecting to LLM gateway&hellip;</small>
+                                <span id="telemetry-delta" class="telemetry-delta" aria-live="polite" hidden></span>
+                                <span class="telemetry-inflight" id="inflight-indicator">
+                                    <span class="inflight-dots" id="inflight-dots" aria-hidden="true"></span>
+                                    <span class="inflight-text" id="inflight-text">&ndash; active streams</span>
+                                </span>
+                                <span id="inflight-a11y" class="sr-only" aria-live="polite">Checking the local model&rsquo;s activity</span>
+                            </div>
+                        </div>
+                        <p class="telemetry-caption">Lifetime activity from models running on my own hardware. Ask the model below and watch the counter move.</p>
+                    </div>
+
+                    <!-- ============================ SYSTEM ECONOMICS ============================ -->
+                    <div class="lab-stats" id="lab-stats">
+                        <div class="lab-stats-head">
+                            <span class="lab-stats-label">SYSTEM ECONOMICS &middot; LIVE FROM THE GATEWAY</span>
+                            <small class="lab-stats-updated" id="stats-updated">Waiting for the gateway&hellip;</small>
+                        </div>
+
+                        <div class="kpi-band" role="group" aria-label="Key economics of the self-hosted lab">
+                            <div class="kpi">
+                                <span class="kpi-label">API cost avoided</span>
+                                <span class="kpi-value" id="stat-cost-saved">&ndash;</span>
+                                <span class="kpi-sub" id="stat-cost-saved-sub">All tokens vs hosted list pricing</span>
+                            </div>
+                            <div class="kpi">
+                                <span class="kpi-label">Est. payback</span>
+                                <span class="kpi-value" id="stat-payback">&ndash;</span>
+                                <span class="kpi-sub" id="stat-payback-sub">$14,000 build vs net savings</span>
+                            </div>
+                            <div class="kpi">
+                                <span class="kpi-label">GPU utilization</span>
+                                <span class="kpi-value" id="stat-util">&ndash;</span>
+                                <span class="kpi-sub" id="stat-util-sub">Busy time &middot; last 30 days</span>
+                            </div>
+                            <div class="kpi">
+                                <span class="kpi-label">Served locally</span>
+                                <span class="kpi-value" id="stat-local-pct">&ndash;</span>
+                                <span class="kpi-sub" id="stat-local-sub"><b class="overflow-amt" id="stat-overflow-amt">&ndash;</b> tokens overflowed to the API (<span class="overflow-amt" id="stat-overflow-share">&ndash;%</span>)</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-breakdowns">
+                            <details class="stat-details">
+                                <summary>
+                                    <span class="stat-details-title">Lifetime tokens &middot; all routes</span>
+                                    <span class="stat-details-value" id="stat-tokens-total">&ndash;</span>
+                                    <span class="stat-details-caret" aria-hidden="true"></span>
+                                </summary>
+                                <div class="stat-details-body">
+                                    <div class="stat-bar" role="img" id="stat-io-bar" aria-label="Input versus output token split">
+                                        <span class="stat-seg stat-seg-input" id="stat-io-input"></span>
+                                        <span class="stat-seg stat-seg-output" id="stat-io-output"></span>
+                                    </div>
+                                    <p class="stat-detail-line" id="stat-io-label">Input/output split pending</p>
+                                    <p class="stat-detail-line"><span id="stat-requests">&ndash;</span> requests &middot; <span id="stat-overflow-tokens" class="overflow-amt">&ndash;</span> tokens overflowed to the API</p>
+                                </div>
+                            </details>
+
+                            <details class="stat-details">
+                                <summary>
+                                    <span class="stat-details-title">Power &amp; energy &middot; cost per hour</span>
+                                    <span class="stat-details-value" id="stat-power-cost">&ndash;</span>
+                                    <span class="stat-details-caret" aria-hidden="true"></span>
+                                </summary>
+                                <div class="stat-details-body">
+                                    <p class="stat-detail-line" id="stat-energy-line">Energy totals pending</p>
+                                    <p class="stat-detail-line" id="stat-power-lifetime">Lifetime cost so far: &ndash;</p>
+                                    <p class="stat-detail-line" id="stat-power-w">~500W average draw at 3 concurrent streams</p>
+                                    <p class="stat-detail-line" id="stat-net-line">Net of power: &ndash;</p>
+                                </div>
+                            </details>
+
+                            <details class="stat-details">
+                                <summary>
+                                    <span class="stat-details-title">Mean throughput &middot; tokens/sec</span>
+                                    <span class="stat-details-value" id="stat-tps-peak">&ndash;</span>
+                                    <span class="stat-details-caret" aria-hidden="true"></span>
+                                </summary>
+                                <div class="stat-details-body">
+                                    <div class="stat-tps">
+                                        <div class="stat-tps-cell"><span class="stat-tps-value" id="stat-tps-peak-inner">&ndash;</span><span class="stat-tps-label">Peak</span></div>
+                                        <div class="stat-tps-cell"><span class="stat-tps-value" id="stat-tps-avg">&ndash;</span><span class="stat-tps-label">24h avg</span></div>
+                                        <div class="stat-tps-cell"><span class="stat-tps-value" id="stat-tps-mean">&ndash;</span><span class="stat-tps-label">Lifetime mean</span></div>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <details class="stat-details">
+                                <summary>
+                                    <span class="stat-details-title">Top models</span>
+                                    <span class="stat-details-value" id="stat-top-model">&ndash;</span>
+                                    <span class="stat-details-caret" aria-hidden="true"></span>
+                                </summary>
+                                <div class="stat-details-body">
+                                    <ol class="stat-models" role="list" aria-label="Top three models by lifetime tokens">
+                                        <li class="stat-model-row" id="stat-model-0-row">
+                                            <span class="stat-model-rank" aria-hidden="true">01</span>
+                                            <span class="stat-model-name" id="stat-model-0-name">&ndash;</span>
+                                            <span class="stat-model-bar"><i id="stat-model-0-bar"></i></span>
+                                            <span class="stat-model-meta"><b id="stat-model-0-tokens">&ndash;</b><em id="stat-model-0-pct">&ndash;</em></span>
+                                        </li>
+                                        <li class="stat-model-row" id="stat-model-1-row">
+                                            <span class="stat-model-rank" aria-hidden="true">02</span>
+                                            <span class="stat-model-name" id="stat-model-1-name">&ndash;</span>
+                                            <span class="stat-model-bar"><i id="stat-model-1-bar"></i></span>
+                                            <span class="stat-model-meta"><b id="stat-model-1-tokens">&ndash;</b><em id="stat-model-1-pct">&ndash;</em></span>
+                                        </li>
+                                        <li class="stat-model-row" id="stat-model-2-row">
+                                            <span class="stat-model-rank" aria-hidden="true">03</span>
+                                            <span class="stat-model-name" id="stat-model-2-name">&ndash;</span>
+                                            <span class="stat-model-bar"><i id="stat-model-2-bar"></i></span>
+                                            <span class="stat-model-meta"><b id="stat-model-2-tokens">&ndash;</b><em id="stat-model-2-pct">&ndash;</em></span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </details>
+                        </div>
+
+                        <p class="lab-stats-footnote">Cost estimates value each token at that model&rsquo;s own hosted list price, not invoices &middot; power is plug-measured at 3 concurrent streams &middot; aggregates refresh every minute</p>
+                    </div>
+
+                    <div class="lab-chat">
+                        <button type="button" class="lab-chat-toggle" id="lab-chat-toggle" aria-expanded="false" aria-controls="lab-chat-body">
+                            <span class="lab-chat-copy">
+                                <strong class="lab-chat-title">Ask Spencer&rsquo;s local model</strong>
+                                <span class="lab-chat-hint">Ask about my experience, projects, or AI lab—or send me an email from the chat.</span>
+                            </span>
+                            <span class="lab-chat-action" aria-hidden="true">
+                                <span class="lab-chat-action-closed">Open chat</span>
+                                <span class="lab-chat-action-open">Close</span>
+                            </span>
+                            <span class="lab-chat-caret" aria-hidden="true"></span>
+                        </button>
+                        <div class="lab-chat-body" id="lab-chat-body" hidden>
+                            <div class="lab-chat-starters" role="group" aria-label="Suggested questions">
+                                <button type="button" data-prompt="What kind of work does Spencer do?">Current experience</button>
+                                <button type="button" data-prompt="Tell me about Spencer's AI systems lab.">AI systems lab</button>
+                                <button type="button" data-prompt="What did Spencer build at SERVO?">SERVO project</button>
+                            </div>
+                            <ol class="lab-chat-log" id="lab-chat-log" role="log" aria-live="polite" aria-label="Conversation with Spencer's local model" tabindex="0"></ol>
+                            <form class="lab-chat-form" id="lab-chat-form">
+                                <label class="sr-only" for="lab-chat-input">Ask about Spencer&rsquo;s experience, projects, or AI lab</label>
+                                <input type="text" id="lab-chat-input" placeholder="Ask about Spencer&rsquo;s experience, projects, or lab&hellip;" autocomplete="off" maxlength="600">
+                                <button type="submit" class="lab-chat-send">Ask model</button>
+                            </form>
+                            <p id="lab-chat-usage" class="lab-chat-usage" aria-live="polite" hidden></p>
+                            <p class="lab-chat-note">Generated on Spencer&rsquo;s self-hosted hardware. Please don&rsquo;t share sensitive information.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- ============================ CURRENT FOCUS ============================ -->
             <section aria-labelledby="focus-title" class="section">
                 <h2 id="focus-title" class="portfolio-title"><span class="title-text">Transformation <span class="second-word">Focus</span></span></h2>
@@ -475,7 +591,7 @@
             </section>
         </main>
     </div>
-    <script src="./index.js?v=20260913-active-streams" defer></script>
+    <script src="./index.js?v=20260913-lab-stats" defer></script>
     <script src="./lab-chat.js?v=20260913-chat-open" defer></script>
 </body>
 </html>

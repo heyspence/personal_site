@@ -318,6 +318,65 @@ a.btn:hover { border-color: var(--accent); color: var(--accent); transform: tran
 
 .telemetry-caption { max-width: 520px; color: #c8d5cf; font-size: 12.5px; line-height: 1.55; }
 
+/* ============================ LAB STATS / SYSTEM ECONOMICS ============================ */
+
+.lab-stats { padding: 22px 30px 26px; border-top: 1px solid rgba(255, 255, 255, .1); }
+
+.lab-stats-head { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.lab-stats-label { color: #748d98; font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .12em; }
+.lab-stats-updated { color: #5f7681; font-size: 10.5px; }
+
+.lab-stats.is-offline .kpi-band,
+.lab-stats.is-offline .stat-breakdowns { opacity: .4; }
+
+/* Big numbers first: the economics that matter, readable at a glance. */
+.kpi-band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin-top: 14px; background: rgba(255, 255, 255, .09); border: 1px solid rgba(255, 255, 255, .09); }
+.kpi { display: flex; flex-direction: column; min-width: 0; padding: 20px 22px 22px; background: rgba(255, 255, 255, .035); }
+.kpi-label { color: #8fa8a0; font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.kpi-value { margin-top: 12px; color: var(--white); font-family: var(--mono); font-size: clamp(24px, 2.6vw, 31px); font-weight: 600; line-height: 1.1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.kpi-sub { margin-top: 8px; color: #7e95a0; font-size: 11px; line-height: 1.45; }
+
+/* Overflow-to-API figures are a warning stat, not a neutral one. */
+.overflow-amt { color: #ff8585; }
+
+/* Breakdowns stay out of the way until the visitor asks for them. */
+.stat-breakdowns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 14px; background: rgba(255, 255, 255, .09); border: 1px solid rgba(255, 255, 255, .09); }
+.stat-details { background: rgba(255, 255, 255, .035); }
+
+.stat-details summary { display: flex; align-items: center; gap: 12px; padding: 15px 18px; cursor: pointer; list-style: none; }
+.stat-details summary::-webkit-details-marker { display: none; }
+.stat-details-title { min-width: 0; overflow: hidden; color: #8fa8a0; font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .12em; text-overflow: ellipsis; white-space: nowrap; text-transform: uppercase; }
+.stat-details-value { margin-left: auto; max-width: 48%; overflow: hidden; color: var(--white); font-family: var(--mono); font-size: 13.5px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.stat-details-caret { flex: none; width: 7px; height: 7px; border-right: 2px solid #8fa8a0; border-bottom: 2px solid #8fa8a0; transform: rotate(45deg); transition: transform .2s; }
+.stat-details[open] .stat-details-caret { transform: translateY(-3px) rotate(225deg); }
+.stat-details summary:hover .stat-details-title, .stat-details summary:focus-visible .stat-details-title { color: var(--mint); }
+.stat-details-body { padding: 0 18px 18px; }
+
+.stat-detail-line { margin-top: 10px; color: #9fb3bf; font-family: var(--mono); font-size: 10.5px; line-height: 1.5; }
+
+.stat-bar { display: flex; height: 7px; margin-top: 14px; overflow: hidden; background: rgba(255, 255, 255, .08); }
+.stat-seg { width: 0%; min-width: 0; transition: width .6s ease-out; }
+.stat-seg-input { background: #d7e4e3; }
+.stat-seg-output { background: var(--mint); }
+
+.stat-tps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
+.stat-tps-cell { min-width: 0; }
+.stat-tps-value { display: block; color: var(--white); font-family: var(--mono); font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat-tps-label { display: block; margin-top: 5px; color: #7e95a0; font-family: var(--mono); font-size: 8.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+
+.stat-models { margin-top: 4px; }
+.stat-model-row { display: grid; grid-template-columns: 20px minmax(0, 1fr) 110px auto; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, .07); }
+.stat-models .stat-model-row:first-child { border-top: 0; padding-top: 2px; }
+.stat-model-rank { color: #5f7681; font-family: var(--mono); font-size: 10px; }
+.stat-model-name { overflow: hidden; color: #c8d5cf; font-family: var(--mono); font-size: 11.5px; text-overflow: ellipsis; white-space: nowrap; }
+.stat-model-bar { display: block; height: 5px; background: rgba(255, 255, 255, .08); overflow: hidden; }
+.stat-model-bar i { display: block; height: 100%; width: 0%; background: var(--mint); transition: width .6s ease-out; }
+.stat-model-meta { display: flex; align-items: baseline; justify-content: flex-end; gap: 10px; white-space: nowrap; font-family: var(--mono); }
+.stat-model-meta b { color: var(--white); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat-model-meta em { color: #7e95a0; font-size: 10px; font-style: normal; font-variant-numeric: tabular-nums; }
+
+.lab-stats-footnote { margin-top: 12px; color: #5f7681; font-size: 10.5px; line-height: 1.5; }
+
 /* ============================ LAB CHAT ============================ */
 
 .lab-chat { background: rgba(255, 255, 255, .025); border-top: 1px solid rgba(255, 255, 255, .12); }
@@ -702,6 +761,12 @@ a.icon:hover { border-color: var(--mint); }
     .lab-chat-starters { gap: 6px; }
     .lab-msg { max-width: 94%; }
 
+    .lab-stats { padding: 18px 20px 22px; }
+    .kpi-band, .stat-breakdowns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stat-details-value { max-width: 40%; }
+    .stat-model-row { grid-template-columns: 20px minmax(0, 1fr) auto; }
+    .stat-model-bar { display: none; }
+
     .section { margin-top: 58px; scroll-margin-top: 80px; }
     .portfolio-title { gap: 10px; margin-bottom: 24px; font-size: clamp(26px, 7.5vw, 29px); }
     .portfolio-title::before { flex-basis: 24px; width: 24px; height: 3px; }
@@ -751,7 +816,7 @@ a.icon:hover { border-color: var(--mint); }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .live-dot, .telemetry-digit.is-changed, .telemetry-delta, .inflight-dots i { animation: none; }
-    .lab-chat-caret, .lab-chat-send { transition: none; }
+    .lab-chat-caret, .lab-chat-send, .stat-details-caret, .stat-seg, .stat-model-bar i { transition: none; }
     .lab-chat-typing span { animation: none; }
     .lab-console::after { display: none; }
     .story-media img, a.btn, a.icon, .site-nav a { transition: none; }
