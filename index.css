@@ -336,9 +336,6 @@ a.btn:hover { border-color: var(--accent); color: var(--accent); transform: tran
 .kpi-value { margin-top: 12px; color: var(--white); font-family: var(--mono); font-size: clamp(24px, 2.6vw, 31px); font-weight: 600; line-height: 1.1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
 .kpi-sub { margin-top: 8px; color: #7e95a0; font-size: 11px; line-height: 1.45; }
 
-/* Overflow-to-API figures are a warning stat, not a neutral one. */
-.overflow-amt { color: #ff8585; }
-
 /* Breakdowns stay out of the way until the visitor asks for them. */
 .stat-breakdowns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 14px; background: rgba(255, 255, 255, .09); border: 1px solid rgba(255, 255, 255, .09); }
 .stat-details { background: rgba(255, 255, 255, .035); }
@@ -370,7 +367,7 @@ a.btn:hover { border-color: var(--accent); color: var(--accent); transform: tran
 .stat-model-rank { color: #5f7681; font-family: var(--mono); font-size: 10px; }
 .stat-model-name { overflow: hidden; color: #c8d5cf; font-family: var(--mono); font-size: 11.5px; text-overflow: ellipsis; white-space: nowrap; }
 .stat-model-bar { display: block; height: 5px; background: rgba(255, 255, 255, .08); overflow: hidden; }
-.stat-model-bar i { display: block; height: 100%; width: 0%; background: var(--mint); transition: width .6s ease-out; }
+.stat-model-bar i { display: block; height: 100%; width: 0%; /* warning red: these shares are the population behind the API-cost-avoided figure */ background: #ff8585; transition: width .6s ease-out; }
 .stat-model-meta { display: flex; align-items: baseline; justify-content: flex-end; gap: 10px; white-space: nowrap; font-family: var(--mono); }
 .stat-model-meta b { color: var(--white); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .stat-model-meta em { color: #7e95a0; font-size: 10px; font-style: normal; font-variant-numeric: tabular-nums; }
