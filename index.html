@@ -132,17 +132,17 @@
 
                         <div class="kpi-band" role="group" aria-label="Key economics of the self-hosted lab">
                             <div class="kpi">
-                                <span class="kpi-label">API cost avoided <span class="info-tip" tabindex="0"><i aria-hidden="true">i</i><span class="info-pop" role="tooltip">Every lifetime token is valued at its own model&rsquo;s hosted list price (OpenRouter rates, Sep 2026) across the models actually served; local-only reranker and embedding models are excluded &mdash; they have no hosted equivalent. Assumes zero prompt caching: all input tokens billed at full rate, so this overstates true hosted cost &mdash; observed API traffic was ~73% cache reads. An estimate, not invoices.</span></span>
+                                <span class="kpi-label">API cost avoided <span class="info-tip" tabindex="0"><i aria-hidden="true">i</i><span class="info-pop" role="tooltip">Every lifetime token is valued at its own model&rsquo;s hosted list price (OpenRouter rates, Sep 2026) across the models actually served; local-only reranker and embedding models are excluded &mdash; they have no hosted equivalent. Prompt caching is priced in using each model&rsquo;s observed hosted hit-share (e.g. ~74% of qwen3.8-27b API traffic) at its list cache rate (~$0.09/MTok); locally served tokens are assumed to have seen the same ratio. An estimate, not invoices.</span></span>
                                 <span class="kpi-value" id="stat-cost-saved">&ndash;</span>
                                 <span class="kpi-sub" id="stat-cost-saved-sub">All tokens vs hosted list pricing</span>
                             </div>
                             <div class="kpi">
-                                <span class="kpi-label">Est. payback</span>
+                                <span class="kpi-label">Est. payback <span class="info-tip" tabindex="0"><i aria-hidden="true">i</i><span class="info-pop" role="tooltip">Days left to recoup the build at today&rsquo;s pace: ($14,000 setup &minus; net savings) &divide; daily net savings. Net = avoided API cost minus lifetime electricity, and service age counts from the first logged token (~Aug 2026). A projection &mdash; usage varies day to day.</span></span>
                                 <span class="kpi-value" id="stat-payback">&ndash;</span>
                                 <span class="kpi-sub" id="stat-payback-sub">$14,000 build vs net savings</span>
                             </div>
                             <div class="kpi">
-                                <span class="kpi-label">GPU utilization</span>
+                                <span class="kpi-label">GPU utilization <span class="info-tip" tabindex="0"><i aria-hidden="true">i</i><span class="info-pop" role="tooltip">Share of the window with the GPU actively generating: wall-clock union of local request intervals, so concurrent streams count once. Window is the last 30 days capped by available history (~23 days now); time spent on API-overflow requests isn&rsquo;t counted.</span></span>
                                 <span class="kpi-value" id="stat-util">&ndash;</span>
                                 <span class="kpi-sub" id="stat-util-sub">Busy time &middot; last 30 days</span>
                             </div>
