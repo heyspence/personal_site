@@ -84,9 +84,9 @@ curl -s https://spencerheywood.com/chat-proxy/healthz
   key itself is no longer visible in page source (or usable directly against
   `llm.`/`mcp.spencerheywood.com`). If you want anonymous access locked down
   later, add a shared secret check here — but visitors would then need it too.
-- **The old key (`[REDACTED]`) was public.** It has been removed
-  from `lab-chat.js`, but it still exists in git history and was exposed to the
-  world, so make sure it is revoked in AgentGateway — that's what makes the new
-  key an actual fix rather than a cosmetic one.
+- **The old gateway key was public.** It has been removed from `lab-chat.js`,
+  but older commits still contain it, so make sure it is revoked (and rotated)
+  in AgentGateway — that's what makes the new key an actual fix rather than a
+  cosmetic one.
 - The proxy only forwards the two chat paths; every other path is a 404, so it
   can't be used as a tunnel to `/api/usage`, `/inflight.json`, etc.
